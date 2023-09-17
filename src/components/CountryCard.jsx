@@ -13,3 +13,22 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
+
+/* eslint-disable react/prop-types */
+import { Card, CardContent, CardMedia, Typography } from '@mui/material';
+
+function CountryCard(props) {
+	return (
+		<Card sx={{ maxWidth: 345, width: 200 }}>
+			<CardMedia component={'img'} alt={props.name} height={'140'} image={props.flagUrl} />
+			<CardContent>
+				<Typography gutterBottom variant={'h5'} component={'div'}>
+					{props.name}
+				</Typography>
+				<Typography variant={'body2'} color={'text.secondary'}></Typography>
+			</CardContent>
+		</Card>
+	);
+}
+
+export default CountryCard;
