@@ -1,8 +1,11 @@
-# React + Vite
+# React-World-App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+List all the countries by Name & Region
 
-Currently, two official plugins are available:
+# License
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Please see [Apache 2.0 License](./LICENSE) for details.
+
+# Citation
+
+CS School. (2023, March 31). <i>The World App | The Perfect Beginner React Project</i>. YouTube. Retrieved September 17, 2023, from https://www.youtube.com/watch?v=wCXXE6S0S7E
