@@ -38,7 +38,7 @@ const Home = () => {
 	};
 
 	useEffect(() => {
-		getAllCountries().then(function (result) {
+		getAllCountries().then((result) => {
 			const countries = result.data;
 			setAllCountriesList(countries);
 			setFilteredCountriesList(countries);
@@ -62,7 +62,7 @@ const Home = () => {
 			}
 			// Step #2: Filter based on country name
 			if (countryName.length) {
-				filteredCountries = filteredCountries.filter(function (country) {
+				filteredCountries = filteredCountries.filter((country) => {
 					const lowercaseName = country.name.toLowerCase();
 					if (lowercaseName.includes(countryName.toLocaleLowerCase())) {
 						return true;
