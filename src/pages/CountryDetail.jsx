@@ -20,18 +20,15 @@ import { useParams } from 'react-router-dom';
 import { getCountryDetail } from '../services';
 import styles from '../styles/CountryDetail.module.css';
 
-function CountryDetail() {
+const CountryDetail = () => {
 	const { countryCode } = useParams();
 	const [detail, setDetail] = useState({});
 
-	useEffect(
-		function () {
-			getCountryDetail(countryCode).then(function (result) {
-				setDetail(result.data);
-			});
-		},
-		[countryCode]
-	);
+	useEffect(() => {
+		getCountryDetail(countryCode).then((result) => {
+			setDetail(result.data);
+		});
+	}, [countryCode]);
 
 	return (
 		<div className={styles.countryDetailWrapper}>
@@ -46,6 +43,6 @@ function CountryDetail() {
 			</div>
 		</div>
 	);
-}
+};
 
 export default CountryDetail;

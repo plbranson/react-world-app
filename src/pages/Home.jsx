@@ -23,21 +23,21 @@ import { getAllCountries } from '../services';
 import styles from '../styles/Home.module.css';
 import CountryCard from '../components/CountryCard';
 
-function Home() {
+const Home = () => {
 	const [region, setRegion] = useState('');
 	const [countryName, setCountryName] = useState('');
 	const [allCountriesList, setAllCountriesList] = useState([]);
 	const [filteredCountriesList, setFilteredCountriesList] = useState([]);
 
-	function handleRegionChange(event) {
+	const handleRegionChange = (event) => {
 		setRegion(event.target.value);
-	}
+	};
 
-	function handleCountryNameChange(event) {
+	const handleCountryNameChange = (event) => {
 		setCountryName(event.target.value);
-	}
+	};
 
-	useEffect(function () {
+	useEffect(() => {
 		getAllCountries().then(function (result) {
 			const countries = result.data;
 			setAllCountriesList(countries);
@@ -45,38 +45,35 @@ function Home() {
 		});
 	}, []);
 
-	useEffect(
-		function () {
-			if (region === '' && countryName === '') {
-				setFilteredCountriesList(allCountriesList);
-			} else {
-				let filteredCountries = allCountriesList;
-				// Step #1: Filtering based on region
-				if (region.length) {
-					filteredCountries = filteredCountries.filter(function (country) {
-						if (country.region === region) {
-							return true;
-						} else {
-							return false;
-						}
-					});
-				}
-				// Step #2: Filter based on country name
-				if (countryName.length) {
-					filteredCountries = filteredCountries.filter(function (country) {
-						const lowercaseName = country.name.toLowerCase();
-						if (lowercaseName.includes(countryName.toLocaleLowerCase())) {
-							return true;
-						} else {
-							return false;
-						}
-					});
-				}
-				setFilteredCountriesList(filteredCountries);
+	useEffect(() => {
+		if (region === '' && countryName === '') {
+			setFilteredCountriesList(allCountriesList);
+		} else {
+			let filteredCountries = allCountriesList;
+			// Step #1: Filtering based on region
+			if (region.length) {
+				filteredCountries = filteredCountries.filter((country) => {
+					if (country.region === region) {
+						return true;
+					} else {
+						return false;
+					}
+				});
 			}
-		},
-		[region, countryName, allCountriesList]
-	);
+			// Step #2: Filter based on country name
+			if (countryName.length) {
+				filteredCountries = filteredCountries.filter(function (country) {
+					const lowercaseName = country.name.toLowerCase();
+					if (lowercaseName.includes(countryName.toLocaleLowerCase())) {
+						return true;
+					} else {
+						return false;
+					}
+				});
+			}
+			setFilteredCountriesList(filteredCountries);
+		}
+	}, [region, countryName, allCountriesList]);
 
 	return (
 		<div>
@@ -120,6 +117,6 @@ function Home() {
 			</div>
 		</div>
 	);
-}
+};
 
 export default Home;

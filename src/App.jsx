@@ -19,7 +19,7 @@ import { Route, Routes } from 'react-router';
 import Home from './pages/Home';
 import CountryDetail from './pages/CountryDetail';
 
-function App() {
+const App = () => {
 	return (
 		<div>
 			<Routes>
@@ -31,6 +31,6 @@ function App() {
 			</Routes>
 		</div>
 	);
-}
+};
 
 export default App;
