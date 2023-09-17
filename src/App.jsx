@@ -14,18 +14,24 @@
  *  limitations under the License.
  */
 
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { Route, Routes } from 'react-router';
 
-import './index.css';
-import App from './App';
+import './App.css';
+import Home from './pages/Home';
+import CountryDetail from './pages/CountryDetail';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-	<React.StrictMode>
-		<BrowserRouter>
-			<App />
-		</BrowserRouter>
-	</React.StrictMode>
-);
+function App() {
+	return (
+		<div>
+			<Routes>
+				<Route path={'/'} element={<Home />} />
+				<Route path={'/countries/:countryCode'} element={<CountryDetail />} />
+
+				{/** All other paths go to 404 - Page Not Found */}
+				<Route path={'*'} element={<h1>404 Page Not Found!</h1>} />
+			</Routes>
+		</div>
+	);
+}
+
+export default App;
